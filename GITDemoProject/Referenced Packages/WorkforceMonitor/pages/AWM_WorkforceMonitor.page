@@ -1,0 +1,124 @@
+<apex:page controller="awm.AWM_PageController" showHeader="false">
+  <apex:styleSheet value="{!URLFOR($Resource.awm__AWM_Resources, 'styles/main.css')}" />
+  <apex:styleSheet value="{!URLFOR($Resource.awm__AWM_Resources, 'styles/menu.css')}" />
+  <apex:includeScript value="/support/console/32.0/integration.js" />
+  <apex:includeScript value="/soap/ajax/32.0/connection.js" />
+  <apex:includeScript value="/soap/ajax/32.0/apex.js" />
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'lang/en.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/json.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/jquery.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/jquery.corner.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/messaging.js')}" />
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/common.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/logger.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/resourceLoader.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/wmApi.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/monitoring.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.awm__AWM_Resources, 'scripts/pageController.js')}"/>
+       
+  <!-- INIT -->
+  <script type="text/javascript">
+    jQuery.extend(true, _aria, {
+      namespace: typeof awm !== "undefined" ? "awm" : "",
+      resourceBasePath: new RegExp("[^\\?]+").exec("{!URLFOR($Resource.awm__AWM_Resources)}") + "/",
+      clientId: _aria.createUuid(),
+      sessionId: '{!$Api.Session_ID}',
+      config: {
+        wfm: {
+          inactivityTimeout: {!inactivityTimeout},
+          reactivationTimeout: {!reactivationTimeout},
+          agentStateOnSignon: "{!agentStateOnSignon}",
+          defaultNotReadyReason: "{!defaultNotReadyReason}",
+          notReadyReasons: {
+            <apex:repeat value="{!notReadyReasons}" var="code">
+              '<apex:outputText value="{!code}"/>': '<apex:outputText value="{!notReadyReasons[code]}"/>',
+            </apex:repeat>
+              'WM_FIN': null
+          },
+          brandingIconUrl: "{!brandingIconUrl}"
+          
+        }
+      }
+    });
+    
+    $(function() {
+      for (var clazzName in _aria.singleton) { 
+        if (typeof (_aria.singleton[clazzName].initialize) === "function") {
+          _aria.singleton[clazzName].initialize();
+        }
+      }
+    
+      getExternalResourcesByContext('AWM_WorkforceMonitor');
+    });
+  </script>
+  
+  <apex:outputPanel id="getExternalResourcesByContextResult">
+    <script>
+      try
+      {
+        var serializedExternalResourcesByContextResult = '{!JSENCODE(afr_getExternalResourcesByContextResult)}';
+        if (serializedExternalResourcesByContextResult);
+        {        
+          var getExternalResourcesByContextResult = JSON.parse(serializedExternalResourcesByContextResult);
+          if (getExternalResourcesByContextResult) {
+            var args = {
+              scripts: getExternalResourcesByContextResult.scripts          
+            };
+            
+            _aria.singleton.ResourceLoader.loadResources(args);
+          }
+        }
+      } catch (e) {
+        _aria.logError("Failed to retrieve external resources. Error: {0}, Client: {1}", e.message, _aria.clientId);
+      }
+    </script>
+  </apex:outputPanel> 
+  <apex:form >
+    <apex:actionFunction action="{!recordHistoryEventActionFunction}" name="recordHistoryEventActionFunction" immediate="true" rerender="">
+      <apex:param name="clientId" value="" assignTo="{!afp_clientId}"/>
+      <apex:param name="clientEntryId" value="" assignTo="{!afp_clientEntryId}"/>
+      <apex:param name="previousClientEntryId" value="" assignTo="{!afp_previousClientEntryId}"/>
+      <apex:param name="primaryObjectId" value="" assignTo="{!afp_primaryObjectId}"/>
+      <apex:param name="subObjectId" value="" assignTo="{!afp_subObjectId}"/>
+      <apex:param name="workingStatus" value="" assignTo="{!afp_workingStatus}"/>
+      <apex:param name="reasonCode" value="" assignTo="{!afp_reasonCode}"/>
+      <apex:param name="extensions" value="" assignTo="{!afp_extensions}"/>
+      <apex:param name="liveChatStatus" value="" assignTo="{!afp_liveChatStatus}"/>
+    </apex:actionFunction>
+    <apex:actionFunction action="{!getExternalResourcesByContextActionFunction}" name="getExternalResourcesByContext" immediate="true" rerender="getExternalResourcesByContextResult">
+      <apex:param name="context" value="" assignTo="{!afp_context}" />
+    </apex:actionFunction>
+  </apex:form>
+    
+  <img class="logo"/>
+  <h2 class="header">Workforce Monitor</h2>
+  <div class="nrrMenuContainer">    
+    <ul class="menu workMenu">
+      <li class="item ready emphasized"><img/><span>RESUME WORK</span></li>
+      <li class="item notReady emphasized" ref="WM-defaultNRR"><img/><span>PAUSE WORK</span></li>
+    </ul>
+  </div>
+  
+  <script type="text/javascript">
+    jQuery.extend(true, _aria, {
+      localization: {
+        Error: "{!$Label.Error}",
+        UserInactive: "{!$Label.UserInactive}",
+        NoActivePage: "{!$Label.NoActivePage}",
+        NotWorking: "{!$Label.NotWorking}",
+        UnknownPage: "{!$Label.UnknownPage}",
+        CreatingNewEntity: "{!$Label.CreatingNewEntity}",
+        UnknownChatVisitor: "{!$Label.UnknownChatVisitor}",
+        ResumeAllButtonTitle: "{!$Label.ResumeAllButtonTitle}",
+        PauseAllButtonTitle: "{!$Label.PauseAllButtonTitle}",
+        WorkStatusSectionTitle: "{!$Label.WorkStatusSectionTitle}",
+        ResumeWorkButtonTitle: "{!$Label.ResumeWorkButtonTitle}",
+        PauseWorkButtonTitle: "{!$Label.PauseWorkButtonTitle}",
+        LiveAgentStatusSectionTitle: "{!$Label.LiveAgentStatusSectionTitle}",
+        OnlineButtonTitle: "{!$Label.OnlineButtonTitle}",
+        AwayButtonTitle: "{!$Label.AwayButtonTitle}",
+        OfflineButtonTitle: "{!$Label.OfflineButtonTitle}"        
+      }
+    });
+  </script>
+</apex:page>

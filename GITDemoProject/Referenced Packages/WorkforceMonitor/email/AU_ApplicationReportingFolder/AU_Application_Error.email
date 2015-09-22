@@ -1,0 +1,13 @@
+Hello,
+
+the following error occurred in Workforce Monitor:
+
+User: {!AU_DebugInfo__c.OwnerFullName}
+Email: {!AU_DebugInfo__c.OwnerEmail}
+
+Entry number: {!AU_DebugInfo__c.Name}
+Level: {!AU_DebugInfo__c.Level__c}
+Component: {!AU_DebugInfo__c.Component__c}
+Data: {!AU_DebugInfo__c.Data__c}
+
+For more details, visit {!AU_DebugInfo__c.Link}

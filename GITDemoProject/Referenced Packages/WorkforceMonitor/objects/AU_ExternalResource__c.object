@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>This object allows registering of external resource like Javascript files, to a package.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Context__c</fullName>
+        <defaultValue>&quot;&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The context defines where the resource will be loaded from. VisualForce page can request resources by context to only include the resources assigned to the context. If the context is left blank, the resource will be included on all pages requesting external resources.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please provide the context to which this resource will be assigned to or leave the context blank to include this resource in every pages that supports external resources.</inlineHelpText>
+        <label>Context</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ResourceType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defines the type of the resource, i.e. script, stylesheet or image. Only supported resource types are currently listed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the type of this resource.</inlineHelpText>
+        <label>Resource Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Script</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ResourceUrl__c</fullName>
+        <deprecated>false</deprecated>
+        <description>URL reference to the resource. Please not that resources located in a Static Resource container need to be resolved.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please provide a absolute or relative path for this resource. Note that resources located in a Static Resource container need to be resolved.</inlineHelpText>
+        <label>Resource URL</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>External Resource</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>ER-{0000}</displayFormat>
+        <label>External Resource Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>External Resources</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>SecureResourceUrl</fullName>
+        <active>true</active>
+        <description>This validation rule ensure that only secure resources are being added to this list. Secure resources are either static resources with a relative path or absolute resources starting with HTTPS.</description>
+        <errorConditionFormula>AND(NOT(BEGINS( ResourceUrl__c, &apos;/resource/&apos;)), NOT(BEGINS( ResourceUrl__c, &apos;https://&apos;)))</errorConditionFormula>
+        <errorDisplayField>ResourceUrl__c</errorDisplayField>
+        <errorMessage>An External Resources must either be accessed through HTTPS or be deployed as a Salesforce Static Resource (starting with a &apos;/resource/&apos;),</errorMessage>
+    </validationRules>
+</CustomObject>

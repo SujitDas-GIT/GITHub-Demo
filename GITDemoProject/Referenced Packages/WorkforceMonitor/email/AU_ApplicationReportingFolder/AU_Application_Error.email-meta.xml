@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This template should be used to alert about an error of an Aria product.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Application Error</name>
+    <style>none</style>
+    <subject>An error occured in Workforce Monitor</subject>
+    <type>text</type>
+</EmailTemplate>

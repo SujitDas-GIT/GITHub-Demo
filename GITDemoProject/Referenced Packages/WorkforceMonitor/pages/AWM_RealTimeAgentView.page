@@ -1,0 +1,30 @@
+<apex:page controller="awm.AWM_RealTimeAgentViewController" showHeader="false">
+  <apex:form >
+    <apex:actionFunction action="{!getCurrentAgentStates}" name="getCurrentAgentStates" rerender="resultBlock" />
+  </apex:form>
+
+  <apex:pageBlock id="resultBlock" title="Real-Time Agent View">
+
+    <apex:pageBlockTable value="{!currentAgentStates}" var="agent" rendered="{!AND(NOT(ISNULL(currentAgentStates)),currentAgentStates.size>0)}">
+
+      <apex:column value="{!agent.Owner.Name}" />
+      <apex:column value="{!agent.awm__WorkingStatus__c}" />
+      <apex:column value="{!agent.awm__ReasonCode__c}" />
+      <apex:column headerValue="Duration (hh:mm)">
+          <apex:outputText value="{0, Number, 00}:{1,Number,00}">
+              <apex:param value="{!FLOOR(agent.awm__Duration__c/60)}"/>
+              <apex:param value="{!MOD(agent.awm__Duration__c, 60)}"/>
+          </apex:outputText>
+      </apex:column>
+    </apex:pageBlockTable>
+    
+    <apex:pageBlockSection rendered="{!AND(NOT(ISNULL(currentAgentStates)),currentAgentStates.size=0)}">
+      There are no agents logged in at the current time.
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+
+  <script type="text/javascript">
+    var updateInterval = {!updateIntervalInSec} * 1000; 
+    setInterval(getCurrentAgentStates, updateInterval);
+  </script>
+</apex:page>

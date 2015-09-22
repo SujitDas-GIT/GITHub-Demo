@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AwayButtonTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Away Button Title</shortDescription>
+        <value>Away</value>
+    </labels>
+    <labels>
+        <fullName>CreatingNewEntity</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Entity Creation Formed Open</shortDescription>
+        <value>Creating New Entity</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>LiveAgentStatusSectionTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Agent Status Title</shortDescription>
+        <value>Live Agent Status</value>
+    </labels>
+    <labels>
+        <fullName>MenuTitleOffWork</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Off Work Menu Title</shortDescription>
+        <value>Off-Work Codes</value>
+    </labels>
+    <labels>
+        <fullName>MenuTitleWork</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Work Menu Title</shortDescription>
+        <value>Work Code</value>
+    </labels>
+    <labels>
+        <fullName>NoActivePage</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No page active</shortDescription>
+        <value>No Page Active</value>
+    </labels>
+    <labels>
+        <fullName>NoCaseAvailable</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No case available for auto-assignment</shortDescription>
+        <value>No case available</value>
+    </labels>
+    <labels>
+        <fullName>NotWorking</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not Working State</shortDescription>
+        <value>Not Working</value>
+    </labels>
+    <labels>
+        <fullName>OfflineButtonTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Offline Button Title</shortDescription>
+        <value>Offline</value>
+    </labels>
+    <labels>
+        <fullName>OnlineButtonTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Online Button Title</shortDescription>
+        <value>Online</value>
+    </labels>
+    <labels>
+        <fullName>PauseAllButtonTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pause Work and Live Agent Chats</shortDescription>
+        <value>Pause All</value>
+    </labels>
+    <labels>
+        <fullName>PauseWorkButtonTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pause Work Button Title</shortDescription>
+        <value>Pause Work</value>
+    </labels>
+    <labels>
+        <fullName>ResumeAllButtonTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resume Work and Live Agent Chats</shortDescription>
+        <value>Resume All</value>
+    </labels>
+    <labels>
+        <fullName>ResumeWorkButton</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resume Work Button</shortDescription>
+        <value>Resume work</value>
+    </labels>
+    <labels>
+        <fullName>ResumeWorkButtonTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resume Work Button Title</shortDescription>
+        <value>Resume Work</value>
+    </labels>
+    <labels>
+        <fullName>StopWorkButton</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Stop Work Button</shortDescription>
+        <value>Stop working</value>
+    </labels>
+    <labels>
+        <fullName>UnknownChatVisitor</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unknown Chat Visitor Title</shortDescription>
+        <value>Unknown Chat</value>
+    </labels>
+    <labels>
+        <fullName>UnknownPage</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unknown Page</shortDescription>
+        <value>Unknown Page</value>
+    </labels>
+    <labels>
+        <fullName>UserInactive</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No activity</shortDescription>
+        <value>No activity</value>
+    </labels>
+    <labels>
+        <fullName>WorkStatusSectionTitle</fullName>
+        <categories>WorkforceMonitor</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Work Status Title</shortDescription>
+        <value>Work Status</value>
+    </labels>
+</CustomLabels>

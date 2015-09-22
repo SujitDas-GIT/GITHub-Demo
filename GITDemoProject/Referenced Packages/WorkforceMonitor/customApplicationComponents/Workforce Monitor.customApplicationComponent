@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplicationComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buttonText>Workforce Monitor</buttonText>
+    <buttonWidth>200</buttonWidth>
+    <height>150</height>
+    <isHeightFixed>false</isHeightFixed>
+    <isHidden>false</isHidden>
+    <isWidthFixed>false</isWidthFixed>
+    <visualforcePage>AWM_WorkforceMonitor</visualforcePage>
+    <width>200</width>
+</CustomApplicationComponent>
